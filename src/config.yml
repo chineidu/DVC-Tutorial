@@ -3,7 +3,8 @@
 
 # Filepaths
 train_data: titanic_train.csv
-test_data: none
+test_data: titanic_test.csv
+model_path: model.joblib
 
 # Constants
 test_size: 0.1

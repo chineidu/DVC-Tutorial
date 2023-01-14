@@ -12,8 +12,19 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
+# custom imports
+from src import config
 
-pipe = Pipeline(steps=[
-    # Replace the missing values in numerical variables
-    ("mean_imputer", MeanMedianImputer(imputation_method="median", variables=num_vars_wf_na))
-])
+
+pipe = Pipeline(
+    steps=[
+        # Replace the missing values in numerical variables
+        (
+            "mean_imputer",
+            MeanMedianImputer(
+                imputation_method="median", variables=config.model_config.num_vars_wf_na
+            ),
+        ),
+        
+    ]
+)
