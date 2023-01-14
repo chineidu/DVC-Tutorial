@@ -64,7 +64,7 @@ dvc push
 * The regular workflow is to use git checkout first (to switch a branch or checkout a `.dvc file` version) and then run dvc checkout to sync data:
 
 ```bash
-git checkout HEAD~1 data/data.xml.dvc
+git checkout HEAD~1 data/filename.csv.dvc
 dvc checkout
 ```
 
