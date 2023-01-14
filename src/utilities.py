@@ -1,10 +1,12 @@
 from pathlib import Path
-from yaml import safe_load
+
 from pydantic import BaseModel
+from yaml import safe_load
 
+import src
 
-ROOT_DIR = Path(__name__).absolute().parent
-BASE_DIR = ROOT_DIR / "src"
+BASE_DIR = Path(src.__file__).absolute().parent
+ROOT_DIR = BASE_DIR.parent
 
 
 class PathConfig(BaseModel):
@@ -20,6 +22,7 @@ class ModelConfig(BaseModel):
 
     test_size: float
     random_state: int
+    n_estimators: int
     target: str
     num_vars: list[str]
     discrete_vars: list[str]
@@ -69,4 +72,3 @@ def parse_config(*, filepath: Path) -> Config:
     return config
 
 config = parse_config(filepath=None)
-

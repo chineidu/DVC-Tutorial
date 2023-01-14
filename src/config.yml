@@ -9,6 +9,7 @@ model_path: model.joblib
 # Constants
 test_size: 0.1
 random_state: 123
+n_estimators: 10
 
 # Dependent variable
 target: Survived

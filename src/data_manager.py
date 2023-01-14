@@ -1,9 +1,15 @@
-import pandas as pd
+"""
+This module is used for loading and manipulating the data.
+"""
 
 import warnings
 
+import pandas as pd
+
 warnings.filterwarnings("ignore")
 import logging
+import typing as tp
+
 from sklearn.base import BaseEstimator, TransformerMixin
 
 
@@ -46,5 +52,7 @@ class CastVariables(BaseEstimator, TransformerMixin):
 
     def transform(self, X: pd.DataFrame, y=None) -> pd.DataFrame:
         X = X.copy()
+        # Cast the features
         X[self.features] = X[self.features].astype(str)
         return X
+
