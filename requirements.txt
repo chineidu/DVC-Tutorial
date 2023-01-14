@@ -4,4 +4,6 @@ feature-engine==1.5.2
 nb_black==1.0.7
 numpy==1.24.1
 pandas==1.5.2
+pydantic
+PyYAML
 scikit-learn==1.2.0

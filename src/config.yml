@@ -1,0 +1,39 @@
+---
+# Configuration for the Project
+
+# Filepaths
+train_data: titanic_train.csv
+test_data: none
+
+# Constants
+test_size: 0.1
+random_state: 123
+
+# Dependent variable
+target: Survived
+
+num_vars:
+  - Age
+  - Fare
+
+discrete_vars:
+  - Parch 
+  - Pclass 
+  - SibSp 
+
+cat_vars:
+  - Sex
+  - Embarked
+
+num_vars_wf_na:
+  - Age
+
+cat_vars_wf_na:
+  - Embarked
+
+features_to_drop:
+  - Cabin
+  - Name
+  - Ticket
+  - PassengerId
+
