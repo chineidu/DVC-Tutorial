@@ -7,6 +7,7 @@ import src
 
 BASE_DIR = Path(src.__file__).absolute().parent
 ROOT_DIR = BASE_DIR.parent
+TRAINED_MODELS_FILEPATH = BASE_DIR / "models"
 
 
 class PathConfig(BaseModel):
@@ -41,7 +42,7 @@ class Config(BaseModel):
 
 def load_yaml_config(*, filepath: Path = None) -> dict:
     """This is used to load the configuration file as a dict
-    
+
     Params:
         filepath (Path): Config filepath in yaml/yml.
 
@@ -58,7 +59,7 @@ def load_yaml_config(*, filepath: Path = None) -> dict:
 
 def parse_config(*, filepath: Path) -> Config:
     """This is used to validate the configuration used in the project.
-    
+
     Params:
         filepath (Path): Config filepath in yaml/yml.
 
@@ -70,5 +71,6 @@ def parse_config(*, filepath: Path) -> Config:
         path_config=PathConfig(**_config_file), model_config=ModelConfig(**_config_file)
     )
     return config
+
 
 config = parse_config(filepath=None)

@@ -63,7 +63,9 @@ pipe = Pipeline(
         # Add NaN flag
         (
             "cat_nan_flag",
-            AddMissingIndicator(missing_only=True, variables=cat_vars_wf_na),
+            AddMissingIndicator(
+                missing_only=True, variables=config.model_config.cat_vars_wf_na
+            ),
         ),
         # Encode Categorical Variables
         (

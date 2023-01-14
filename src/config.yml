@@ -9,7 +9,7 @@ model_path: model.joblib
 # Constants
 test_size: 0.1
 random_state: 123
-n_estimators: 10
+n_estimators: 50
 
 # Dependent variable
 target: Survived
@@ -38,4 +38,3 @@ features_to_drop:
   - Name
   - Ticket
   - PassengerId
-
