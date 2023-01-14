@@ -1,7 +1,11 @@
 import warnings
 
 from feature_engine.encoding import OrdinalEncoder, RareLabelEncoder
-from feature_engine.imputation import CategoricalImputer, MeanMedianImputer
+from feature_engine.imputation import (
+    CategoricalImputer,
+    MeanMedianImputer,
+    AddMissingIndicator,
+)
 from feature_engine.selection import DropFeatures
 from feature_engine.transformation import YeoJohnsonTransformer
 from sklearn.ensemble import RandomForestClassifier
@@ -52,8 +56,14 @@ pipe = Pipeline(
         (
             "cat_vars_wf_na",
             CategoricalImputer(
-                imputation_method="frequent", variables=config.model_config.cat_vars_wf_na
+                imputation_method="frequent",
+                variables=config.model_config.cat_vars_wf_na,
             ),
+        ),
+        # Add NaN flag
+        (
+            "cat_nan_flag",
+            AddMissingIndicator(missing_only=True, variables=cat_vars_wf_na),
         ),
         # Encode Categorical Variables
         (
