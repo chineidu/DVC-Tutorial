@@ -7,6 +7,7 @@ import src
 
 BASE_DIR = Path(src.__file__).absolute().parent
 ROOT_DIR = BASE_DIR.parent
+DATA_PATH = BASE_DIR / "data"
 TRAINED_MODELS_FILEPATH = BASE_DIR / "models"
 
 

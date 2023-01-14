@@ -16,7 +16,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
-from src.utilities import TRAINED_MODELS_FILEPATH
+from src.utilities import DATA_PATH, TRAINED_MODELS_FILEPATH
 
 
 # Helper Functions
@@ -31,17 +31,18 @@ def set_up_logger(delim: str = "::") -> tp.Any:
 logger = set_up_logger()
 
 
-def load_data(*, filepath: str) -> pd.DataFrame:
+def load_data(*, filename: str) -> pd.DataFrame:
     """This is used to load data as a dataframe.
 
     Params:
-        filepath (str): The filepath of the input data.
+        filename (str): The filepath of the input data.
 
     Returns:
         df (pd.Dataframe): A DF containing the input data.
     """
     _logger = set_up_logger()
-    df = pd.read_csv(filepath)
+    fp = DATA_PATH / filename
+    df = pd.read_csv(fp)
     _logger.info(f"Shape of df: {df.shape}\n")
     return df
 
