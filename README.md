@@ -27,7 +27,7 @@ git commit -m "Add files to be tracked by dvc"
 * To autostage changes (i.e git automatically adds files created by dvc), run:
 
 ```bash
-core.autostage
+dvc config core.autostage true
 ```
 
 * To add a remote storage, e.g Google Drive, run:
