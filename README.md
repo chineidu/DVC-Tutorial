@@ -33,10 +33,10 @@ dvc config core.autostage true
 * To add a remote storage, e.g Google Drive, run:
 
 ```bash
-dvc add --default <storage_name> gdrive://<your_folder_id>
+dvc remote add --default <storage_name> gdrive://<your_folder_id>
 
 # e.g
-dvc add -d myremote gdrive://0AIac4JZqHhKmUk9PDA
+dvc remote add -d myremote gdrive://0AIac4JZqHhKmUk9PDA
 
 # Push to the remote storage
 dvc push  # Assuming there's data to push
